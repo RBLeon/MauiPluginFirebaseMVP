@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-        <TargetFrameworks>net8.0-android;net8.0-ios;</TargetFrameworks>
+        <TargetFrameworks>net8.0-android;</TargetFrameworks>
 
         <OutputType>Exe</OutputType>
         <RootNamespace>MauiPluginFirebaseMVP</RootNamespace>
@@ -15,13 +15,13 @@
         <ApplicationTitle>MauiPluginFirebaseMVP</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.companyname.MauiPluginFirebaseMVP</ApplicationId>
+        <ApplicationId>com.Reynethan.MauiPluginFirebaseMVP</ApplicationId>
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
 
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+<!--        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>-->
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">28.0</SupportedOSPlatformVersion>
     </PropertyGroup>
 
@@ -48,6 +48,36 @@
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)"/>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0"/>
+        <PackageReference Include="Plugin.Firebase" Version="3.0.0" />
+        <PackageReference Include="Plugin.Firebase.Analytics" Version="3.0.0" />
+        <PackageReference Include="Plugin.Firebase.Crashlytics" Version="3.0.0" />
     </ItemGroup>
 
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+        <GoogleServicesJson Include="google-services.json" />
+    </ItemGroup>
+    
+    <!--anti build errors-->
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+<!--        <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.9.10.2" ExcludeAssets="build;buildTransitive" />-->
+<!--        <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.9.10.2" ExcludeAssets="build;buildTransitive" />-->
+
+        <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.8.0.6" />
+        <PackageReference Include="Xamarin.AndroidX.Collection.Jvm">
+            <Version>1.4.4</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.AndroidX.Core" Version="1.13.1.5" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.8.5.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.8.5.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Core" Version="2.8.5.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Core.Ktx" Version="2.8.5.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.8.5.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel" Version="2.8.5.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel.Ktx" Version="2.8.5.1" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="118.4.0.2" />
+        <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.4.4" />
+        <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.4.4" />
+        <PackageReference Include="Xamarin.AndroidX.Activity" Version="1.9.2.1" />
+        <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.9.2.1" />
+    </ItemGroup>
 </Project>

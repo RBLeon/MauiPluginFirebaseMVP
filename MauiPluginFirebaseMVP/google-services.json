@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "198040349882",
+    "project_id": "mauipluginfirebasemvp",
+    "storage_bucket": "mauipluginfirebasemvp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198040349882:android:4398a5d600fbf5de46a683",
+        "android_client_info": {
+          "package_name": "com.Reynethan.MauiPluginFirebaseMVP"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu3XkN255d4Me0qwOSBMdcS8qByNFzS7Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
